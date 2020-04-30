@@ -10,17 +10,20 @@ namespace BankDB.Services
     {
         private readonly IAccountRepository _accountRepository;
 
+        //Constructor
         public AccountService()
         {
             _accountRepository = new AccountRepository();
         }
 
+        //Create account
         public Account Create(Account newAccount)
         {
             var createdAccount = _accountRepository.Create(newAccount);
             return createdAccount;
         }
 
+        //Delete account based on IBAN string, informs if process succeeded
         public void Delete(string IBAN)
         {
             var getAccount = Read(IBAN);
@@ -35,24 +38,28 @@ namespace BankDB.Services
             }
         }
 
+        //Get list of accounts associated with bank
         public List<Account> Read(Bank bank)
         {
             var accounts = _accountRepository.Read(bank);
             return accounts;
         }
 
+        //Get account based on IBAN
         public Account Read(string IBAN)
         {
             var account = _accountRepository.Read(IBAN);
             return account;
         }
 
+        //Get list of accounts associated with customer
         public List<Account> Read(Customer customer)
         {
             var accounts = _accountRepository.Read(customer);
             return accounts;
         }
 
+        //Update account
         public void Update(Account account)
         {
             _accountRepository.Update(account);

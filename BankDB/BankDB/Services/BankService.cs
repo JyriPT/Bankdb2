@@ -10,7 +10,7 @@ namespace BankDB.Services
     {
         private readonly IBankRepository _bankRepository;
 
-        //Cosntructor
+        //Constructor
         public BankService()
         {
             _bankRepository = new BankRepository();
