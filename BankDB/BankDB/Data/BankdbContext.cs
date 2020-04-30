@@ -3,7 +3,6 @@ using BankDB.Models;
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using BankDB.Models;
 
 namespace BankDB.Data
 {

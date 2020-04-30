@@ -35,6 +35,7 @@ namespace BankDB.Repositories
         }
 
         //Delete customer from database
+        //NOT WORKING AND I DON'T KNOW WHY, SAYS DELETION IS CONSTRAINED BY A CONSTRAINT SET TO CASCADE
         public void Delete(Customer customer)
         {
             _context.Customer.Remove(customer);
