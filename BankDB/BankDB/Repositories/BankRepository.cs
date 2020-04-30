@@ -12,10 +12,13 @@ namespace BankDB.Repositories
     {
         private readonly BankdbContext _context;
 
+        //Constructor
         public BankRepository()
         {
             _context = new BankdbContext();
         }
+
+        //Add bank into database, produce error if given
         public Bank Create(Bank newBank)
         {
             try
@@ -31,12 +34,14 @@ namespace BankDB.Repositories
             }
         }
 
+        //Delete bank from database
         public void Delete(Bank deleteBank)
         {
             _context.Bank.Remove(deleteBank);
             _context.SaveChanges();
         }
 
+        //Get bank from databse with matching id
         public Bank Read(int id)
         {
             var bank = _context
@@ -45,6 +50,7 @@ namespace BankDB.Repositories
             return bank;
         }
 
+        //Update bank in database
         public Bank Update(Bank updateBank)
         {
             _context.Bank.Update(updateBank);

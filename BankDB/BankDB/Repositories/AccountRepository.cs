@@ -12,11 +12,13 @@ namespace BankDB.Repositories
     {
         private readonly BankdbContext _context;
 
+        //Constructor
         public AccountRepository()
         {
             _context = new BankdbContext();
         }
 
+        //Add account to database, produce error if given
         public Account Create(Account newAccount)
         {
             try
@@ -32,12 +34,14 @@ namespace BankDB.Repositories
             }
         }
 
+        //Delete account from database
         public void Delete(Account account)
         {
             _context.Account.Remove(account);
             _context.SaveChanges();
         }
 
+        //Get list of accounts with Bankid that matches given entity
         public List<Account> Read(Bank bank)
         {
             try
@@ -55,6 +59,7 @@ namespace BankDB.Repositories
             }
         }
 
+        //Get account from database with matching IBAN
         public Account Read(string IBAN)
         {
             var account = _context
@@ -63,6 +68,7 @@ namespace BankDB.Repositories
             return account;
         }
 
+        //Get list of account from database with CustomerId that matches given entity
         public List<Account> Read(Customer customer)
         {
             try
@@ -80,6 +86,7 @@ namespace BankDB.Repositories
             }
         }
 
+        //Update account in database, produce error if given
         public void Update(Account account)
         {
             try

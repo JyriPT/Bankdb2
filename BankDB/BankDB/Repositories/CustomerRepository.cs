@@ -12,11 +12,13 @@ namespace BankDB.Repositories
     {
         private readonly BankdbContext _context;
 
+        //Constructor
         public CustomerRepository()
         {
             _context = new BankdbContext();
         }
 
+        //Add customer to database, produce error if given
         public Customer Create(Customer newCustomer)
         {
             try
@@ -32,12 +34,14 @@ namespace BankDB.Repositories
             }
         }
 
+        //Delete customer from database
         public void Delete(Customer customer)
         {
             _context.Customer.Remove(customer);
             _context.SaveChanges();
         }
 
+        //Get list of customers from database with matching BankId to given entity
         public List<Customer> Read(Bank bank)
         {
             try
@@ -57,6 +61,7 @@ namespace BankDB.Repositories
             }
         }
 
+        //Get customer with matching id
         public Customer Read(int id)
         {
             var customer = _context
@@ -65,6 +70,7 @@ namespace BankDB.Repositories
             return customer;
         }
 
+        //Update customer
         public Customer Update(Customer updateCustomer)
         {
             _context.Update(updateCustomer);
